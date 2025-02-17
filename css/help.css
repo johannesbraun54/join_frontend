@@ -1,0 +1,103 @@
+.helpContainer {
+    margin-left: 96px;
+    margin-right: 98px;
+    margin-top: 90px;
+}
+
+.backButton {
+    height: 32px;
+    width: 32px;
+    position: sticky;
+    border: none;
+    background-color: unset;
+    top: 142px;
+    right: 98.5px;
+    left: 90%;
+    padding: 0px;
+}
+
+.backButton:hover {
+    background-color: rgb(225, 230, 236);
+    border-radius: 50%;
+}
+
+.headline {
+    margin-bottom: 32px;
+    margin-right: 16px;
+}
+
+.paragraphContainer {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.paragraph {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.paragraphNumber {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 35px;
+    color: var(--black, #000);
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 32.4px */
+}
+
+.paragraphText {
+    display: flex;
+    flex-direction: column;
+}
+
+.helpParagraph {
+    color: var(--black, #000);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+}
+
+.helpH1 {
+    color: #000;
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 56.4px */
+}
+
+.helpH2 {
+    color: var(--black, #000);
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 32.4px */
+}
+
+.helpH3 {
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    /* 24px */
+}
+
+@media (max-width:760px) {
+    .helpContainer {
+        margin-left: 46px;
+        margin-right: 48px;
+        margin-top: 50px;
+    }
+}

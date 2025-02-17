@@ -1,0 +1,749 @@
+body {
+    margin: 0;
+    font-family: 'Inter';
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden;
+    user-select: none;
+    position: relative;
+}
+
+#content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+#content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+h1 {
+    margin-block: 0;
+}
+
+.logoStart {
+    height: 100vh;
+    background-color: #f6f7f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoStart img {
+    height: 230px;
+    width: auto;
+    animation: changeLogoPosition 1s ease-in-out forwards 500ms;
+
+}
+
+@keyframes changeLogoPosition {
+    from {
+        height: 230px;
+        transform: translateX(0%) translateY(0%);
+    }
+
+    to {
+        transform: translateX(calc(-45vw + 49%)) translateY(calc(-45vh + 30%));
+        height: 84px;
+    }
+}
+
+/*overlay for SignUp;*/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#successMessage {
+    display: flex;
+    height: 74px;
+    padding: 0px 25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.5s, slideOut 1s 2s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(0, 100%);
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(0, 100%);
+
+    }
+}
+
+.startPage {
+    display: none;
+    height: 100vh;
+    background-color: #f6f7f8;
+    animation: fadeInLogin 1s ease-in-out;
+}
+
+.signUpPage {
+    display: block;
+    height: 100vh;
+    background-color: #f6f7f8;
+    animation: fadeInLogin 1s ease-in-out;
+}
+
+.mainDivOne {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 5%;
+    padding-right: 122px;
+    padding-top: 16px;
+}
+
+.mainDivOne img {
+    height: 80%;
+}
+
+.signUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+
+.mainDivTwo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+
+}
+
+.loginBox {
+    height: 45vh;
+    width: 30vw;
+    padding: 48px 115px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.loginH1 {
+    font-size: 61px;
+}
+
+.loginInput {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 422px;
+    height: 48px;
+}
+
+.loginMailInputMsg {
+    color: #FF8190;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: none;
+}
+
+.loginPasswordInputMsg {
+    color: #FF8190;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: none;
+}
+
+.inputContainer img {
+    margin: 12px 0px;
+    width: 24px;
+    height: 24px;
+}
+
+.login input:focus {
+    outline: none;
+}
+
+.inputContainer {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    margin-bottom: 2%;
+}
+
+.inputContainer input::placeholder {
+    color: #D1D1D1;
+}
+
+.checkBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 32px;
+    margin-right: 280px;
+    cursor: pointer;
+}
+
+.checkBoxUnchecked {
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+
+.checkBoxChecked {
+    height: 24px;
+    width: 24px;
+    display: none;
+}
+
+#loginUnderline {
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.logBtns {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.loginBtn {
+    background-color: #2a3646;
+    color: white;
+    border-radius: 8px;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.loginBtn:hover {
+    background: rgb(46, 185, 255);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.loginGuestBtn {
+    color: #2a3646;
+    padding: 15px 24px;
+    background-color: white;
+    border: 1px solid #2a3646;
+    border-radius: 8px;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 21px;
+    font-weight: 700;
+
+}
+
+.loginGuestBtn:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    color: rgb(46, 185, 255);
+    border: 1px solid rgb(46, 185, 255);
+}
+
+.mainDivThree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainDivThree div {
+    margin: 8px;
+}
+
+.mainDivThree a {
+    text-decoration: none;
+    color: #a8a8a8;
+    padding: 8px;
+    margin: 40px 8px;
+}
+
+.loginLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.loginLinks>a:hover {
+    font-weight: bold;
+    color: rgb(46, 185, 255);
+}
+
+
+.signUpBox {
+    width: 40vw;
+    padding: 2% 4%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.d-none {
+    display: none;
+}
+
+.signUpHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.signUpH1 {
+    font-size: 40px;
+}
+
+.signUpForm {
+    width: 100%;
+}
+
+.confirmMsg {
+    color: #FF8190;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: none;
+}
+
+.backArrow {
+    position: absolute;
+    margin-top: -450px;
+    margin-left: -500px;
+    cursor: pointer;
+}
+
+.backArrow:hover {
+    background-color: #e7e7e7;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.acceptMsg {
+    display: none;
+    justify-content: center;
+}
+
+.acceptMsg span {
+    color: #FF8190;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.acceptBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 3%;
+    cursor: pointer;
+    color: #a8a8a8;
+
+}
+
+.acceptBoxUnchecked {
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+
+.acceptBoxChecked {
+    height: 24px;
+    width: 24px;
+    display: none;
+}
+
+.acceptBox a {
+    text-decoration: none;
+    color: rgb(46, 185, 255);
+}
+
+.acceptBox a:hover {
+    text-decoration: underline;
+}
+
+.applicationBody {
+    display: flex;
+    overflow-x: hidden;
+}
+
+.leftSide {
+    background-color: #2A3647;
+}
+
+.navBar {
+    width: 232px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.w3NavBar {
+    height: 100%;
+}
+
+.header {
+    position: relative;
+    z-index: 999;
+    height: 80px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.rightSide {
+    width: 100%;
+}
+
+#content {
+    background-color: #F6F7F8;
+    height: calc(100vh - 80px);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.buttonFilled {
+    background-color: #2A3647;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonFilled:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.buttonFilled:active {
+    background-color: #091931;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+}
+
+.buttonUnfilled {
+    background-color: transparent;
+    border: 1px solid #2A3647;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.buttonUnfilled:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.buttonUnfilled:active {
+    color: #091931;
+    border: 1px solid #091931;
+}
+
+.respSignUp {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.respSignUpBtn {
+    background-color: #2a3646;
+    color: white;
+    border-radius: 8px;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.respSignUpBtn:hover {
+    background: rgb(46, 185, 255);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media(max-width:1300px) {
+
+    .signUp {
+        display: none;
+    }
+
+    .signUpBox {
+        width: 50vw;
+    }
+
+    .respSignUp {
+        display: flex;
+    }
+
+    .loginBox {
+        height: 40vh;
+    }
+
+    .mainDivThree a {
+        margin: 8px;
+    }
+
+    .checkBox {
+        margin: 16px;
+    }
+
+    @keyframes changeLogoPosition {
+        from {
+            height: 230px;
+            transform: translateX(0%) translateY(0%);
+        }
+
+        to {
+            transform: translateX(calc(-45vw + 50%)) translateY(calc(-45vh + 30%));
+            height: 84px;
+        }
+    }
+}
+
+@media(max-width: 1000px) {
+
+    .mainDivOne {
+        height: 15vh;
+    }
+
+    .mainDivOne img {
+        height: 70%;
+    }
+
+    .loginBox {
+        height: 60vh;
+    }
+
+    .loginForm {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .login {
+        width: 90%;
+        height: 100%;
+    }
+
+    .inputContainer {
+        width: 90%;
+    }
+
+    .loginInput {
+        width: 90%;
+    }
+
+    .login h1 {
+        font-size: 40px;
+    }
+
+    @keyframes changeLogoPosition {
+        from {
+            height: 230px;
+            transform: translateX(0%) translateY(0%);
+        }
+
+        to {
+            transform: translateX(calc(-45vw + 50%)) translateY(calc(-45vh + 27%));
+            height: 73.5px;
+        }
+    }
+
+    .loginBox {
+        padding: 0px 8px;
+        width: 65vw;
+    }
+
+    .logBtns {
+        flex-direction: column;
+    }
+
+    .loginBtn {
+        width: 50%;
+        margin: 4px;
+        font-size: 16px;
+    }
+
+    .loginGuestBtn {
+        width: 50%;
+        margin: 4px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 780px) {
+    .signUpBox {
+        width: 70vw;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .logoStart {
+        background-color: #2a3647;
+    }
+
+    .logoStart img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(1797%) hue-rotate(347deg) brightness(104%) contrast(104%);
+    }
+
+
+    .mainDivOne {
+        height: 20vh;
+    }
+
+    .mainDivOne img {
+        height: 40%;
+    }
+
+    .login {
+        height: auto;
+    }
+
+    .login h1 {
+        font-size: 32px;
+    }
+
+    .loginBox {
+        height: 50vh;
+        width: 85vw;
+        padding: 12px;
+    }
+
+    .loginInput {
+        width: 90%;
+        height: auto;
+    }
+
+    .inputContainer {
+        width: 90%;
+    }
+
+    .inputContainer {
+        width: 90%;
+        margin-bottom: 4%;
+    }
+
+    .respSignUpBtn {
+        font-size: 16px;
+        padding: 5% 16px;
+    }
+
+    .checkBox {
+        margin-bottom: 4%;
+        margin-top: 2%;
+    }
+
+    .loginBtn {
+        padding: 2% 4%;
+    }
+
+    .loginGuestBtn {
+        padding: 2% 4%;
+    }
+
+    #loginUnderline {
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+
+    .loginMailInputMsg {
+        margin-bottom: 0;
+    }
+
+    @keyframes changeLogoPosition {
+        from {
+            height: 230px;
+            transform: translateX(0%) translateY(0%);
+            filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(1797%) hue-rotate(347deg) brightness(104%) contrast(104%);
+
+        }
+
+        to {
+            transform: translateX(calc(-45vw + 50%)) translateY(calc(-45vh + 20%));
+            height: 56px;
+            filter: brightness(0) saturate(100%) invert(18%) sepia(14%) saturate(1317%) hue-rotate(176deg) brightness(91%) contrast(89%);
+        }
+    }
+
+    .signUpBox {
+        width: 80vw;
+        height: 60vh;
+    }
+
+    .acceptBox {
+        font-size: small;
+    }
+}

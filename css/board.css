@@ -1,0 +1,920 @@
+/*Induvidually tags*/
+.h3 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+/*header*/
+.boardHeaderContent {
+    display: flex;
+    margin-left: 64px;
+    margin-right: 88px;
+    margin-top: 79.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headBar {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board {
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-top: 64px;
+}
+
+.boardContent {
+    width: 100%;
+}
+
+.boardHeadline {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    font-size: 40px;
+}
+
+
+.todoSection h1 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+
+}
+
+
+.todoSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    max-width: 300px;
+    padding-right: 13px;
+    padding-left: 13px;
+}
+
+.statusheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 13px;
+    padding-left: 13px;
+}
+
+.respBtn {
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    margin: 32px;
+
+}
+
+.respBtn img {
+    width: 34px;
+    height: 34px;
+}
+
+.respBtn:hover {
+    background: rgb(46, 185, 255);
+    border: 1px solid rgb(46, 185, 255);
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    animation: changeColor 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.addTaskBtn {
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 32px;
+    cursor: pointer;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+
+}
+
+.addTaskBtn:hover {
+    background: rgb(46, 185, 255);
+    border: 1px solid rgb(46, 185, 255);
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    animation: changeColor 150ms ease-in-out;
+}
+
+@keyframes changeColor {
+    from {
+        background-color: #2A3647;
+        ;
+    }
+
+    to {
+        background-color: rgb(46, 185, 255);
+        border: 1px solid rgb(46, 185, 255);
+    }
+}
+
+.addTaskHeader {
+    border-radius: 8px;
+    border: 2px solid #2A3647;
+    padding-left: 4px;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+.respAddTaskHeader {
+    display: none;
+    border-radius: 8px;
+    border: 2px solid #2A3647;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/*board content*/
+
+.todos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 13px;
+    padding-left: 13px;
+    height: 100%;
+    width: 100%;
+    min-height:250px;
+}
+
+.dragAreaHighlight {
+    border-style: dotted;
+    border-radius: 24px;
+}
+
+.noTasks {
+    background-color: #e7e7e7;
+    color: #b0b0b0;
+    border-style: dotted;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    margin-top: 15.5px;
+    margin-right: 13px;
+    margin-left: 13px;
+
+}
+
+/*dialog*/
+
+.dialog-bgBoard {
+
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dialog-bgAddTask {
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dialogAddTaskBoard {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 24px;
+    width: 80vw;
+    height: 90vh;
+    background-color: white;
+    transition: transform 250ms ease-in-out;
+    overflow-y: scroll;
+}
+
+.dialogShowCard {
+    border-radius: 24px;
+    background-color: white;
+    min-width: 33vw;
+    max-width: 70vw;
+    padding: 32px 24px;
+    border-radius: 24px;
+    overflow-y: auto;
+    transform: translateX(200%);
+    transition: transform 250ms ease-in-out;
+    position: relative;
+}
+
+.dialogShowCard .formLeftSide {
+    padding-right: 8px;
+    width: unset;
+}
+
+.dialogShowCard .formRightSide {
+    padding-right: 8px;
+    width: unset;
+}
+
+.dialogShowCard .addTaskContent {
+    margin-left: unset;
+}
+
+.dialogShowCard .form {
+    display: block;
+    margin-top: unset;
+    width: 100%;
+}
+
+.dialogShowCard .addTaskContent h1 {
+    display: none;
+}
+
+.dialogShowCard .clearAndCreateButton {
+    display: none;
+}
+
+.dialogShowCard .newSubtaskAdded {
+    height: auto;
+    max-height: 110px;
+}
+
+.dialogShowCard .dateBlock {
+    height: 96px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.dialogShowCard .formSeparator {
+    display: none;
+}
+
+.dialogShowCard .bottomText {
+    display: none;
+}
+
+.dialogShowCard #imageFromDropDown {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    padding-top: 8px;
+    margin-top: 0;
+
+}
+
+.editSubmitButton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+    z-index: 12000;
+}
+
+.headerEditForm {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    z-index: 2;
+}
+
+.taskHeader {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 16px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    z-index: 2;
+}
+
+.editTemplate {
+    margin-top: 32px;
+    margin-bottom: 40px;
+    max-height: 70vh;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.taskTemplate {
+    margin-top: 65px;
+    margin-bottom: 40px;
+    max-height: 70vh;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.saveEditButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 56px;
+    padding-left: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.changeStatus {
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #42526E;
+    background-color: white;
+    font-size: 32px;
+}
+
+.changeStatusPopUp {
+    display: none;
+    position: absolute;
+    margin-top: 4px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 12px;
+    left: 50%;
+}
+
+.changeStatusPopUp p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding: 2px;
+}
+
+.changeStatusPopUp p:hover {
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #f6f7f8;
+    color: #2A3647;
+}
+
+.popUpBackground {
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.editTemplate::-webkit-scrollbar {
+    width: 6px;
+}
+
+.editTemplate::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.editTemplate::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.editTemplate::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.card {
+    height: auto;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    margin: 24px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.rotateCard {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    margin: 24px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(5deg);
+}
+
+.cardContent {
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dueDate {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    align-self: stretch;
+
+}
+
+.grey {
+    color: #42526E;
+}
+
+.editCard {
+    height: 24px;
+    width: 24px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.editCard:hover {
+    background-color: #e4e4e4;
+    border-radius: 50%;
+}
+
+.cardContent p {
+    color: #A8A8A8;
+}
+
+.cardPrio {
+    display: flex;
+    padding: 4px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.cardContact {
+    display: flex;
+    padding: 7px 16px;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 16px;
+    flex-direction: column;
+
+}
+
+.assignedContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    background-color: grey;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -7px;
+}
+
+.formArea {
+    flex-direction: row;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 8px 16px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.respFormArea {
+    flex-direction: row;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    background-color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 8px 16px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.inputArea {
+    flex-grow: 2;
+    border: none;
+}
+
+.inputArea:focus {
+    outline: none;
+}
+
+.formArea:focus-within {
+    border: 1px solid rgb(255, 255, 255);
+    outline: 1px solid rgb(46, 185, 255)
+}
+
+.buttonBoard {
+    background-color: white;
+    border: none;
+    padding: 0px;
+}
+
+.searchBoard {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.searchBoard:hover {
+    background-color: #e4e4e4;
+    border-radius: 50%;
+}
+
+.subtask {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 4px;
+    padding-right: 16px;
+    margin-bottom: 16px;
+}
+
+
+.subConti {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 4px;
+
+}
+
+.subConti:hover {
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkBg {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkBg:hover {
+    background-color: #d1d1d1;
+    border-radius: 16px;
+}
+
+.closeSection {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 24px;
+    z-index: 12000;
+}
+
+.closeSectionItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.closeSectionItem:hover {
+    font-weight: bold;
+}
+
+.category {
+    display: inline;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: white;
+    width: auto;
+}
+
+.cardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+progress {
+    height: 16px;
+    width: 60%;
+    border: none;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 8px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f4f4f4;
+}
+
+progress::-webkit-progress-value {
+    background-color: #4588ff;
+    animation: progressBarAnimation 2s ease-in-out;
+    /* Hier wird die Animation hinzugefügt */
+}
+
+progress::-moz-progress-bar {
+    background-color: #4caf50;
+}
+
+.progressBar {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.notChecked {
+    height: 18px;
+    width: 19px;
+}
+
+.endSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    margin-top: 24px;
+}
+
+.avatars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatars img {
+    padding: -10px;
+}
+
+.filterBlue:hover {
+    filter: invert(55%) sepia(26%) saturate(4412%) hue-rotate(160deg) brightness(96%) contrast(102%);
+}
+
+@media(max-width: 1380px) {
+    .respBtn {
+        display: flex;
+    }
+
+    .addTaskBtn {
+        display: none;
+    }
+
+    .changeStatus {
+        display: flex;
+    }
+
+    .dialogShowCard {
+        min-width: 50vw;
+    }
+
+    .board {
+        display: unset;
+        width: 100%;
+    }
+
+    .dialog-bgAddTask {
+        display: none;
+    }
+
+    .card {
+        max-width: 240px;
+        min-width: 230px;
+    }
+
+    .addTaskHeader {
+        display: none;
+    }
+
+    .respAddTaskHeader {
+        display: flex;
+    }
+
+    .rotateCard {
+        max-width: 240px;
+        min-width: 230px;
+    }
+
+    .todoSection {
+        width: unset;
+        display: flex;
+        max-width: unset;
+    }
+
+    .todos {
+        width: calc(100vw - 280px);
+        flex-direction: unset;
+        min-height: unset;
+        overflow-x: auto;
+        margin-bottom: 8px;
+    }
+
+    .statusheader {
+        width: 90%;
+        justify-content: space-between;
+        font-size: 27px;
+        font-weight: 700;
+    }
+
+    .statusheader h3 {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+
+    .noTasks {
+        margin-bottom: 26px;
+    }
+}
+
+@media(max-width: 1000px) {
+
+    .board {
+        margin: 0;
+    }
+
+    .boardHeaderContent {
+        margin-right: 0;
+    }
+
+    .headBar {
+        justify-content: flex-end;
+        margin-right: 32px;
+    }
+
+    .formArea {
+        display: none;
+    }
+
+    .respFormArea {
+        display: flex;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .dialogShowCard {
+        max-width: 80vw;
+    }
+
+}
+
+@media(max-width: 760px) {
+
+    .boardHeadline h1 {
+        font-size: 47px;
+    }
+
+    .boardHeaderContent {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-top: 40px;
+    }
+
+    .dialogShowCard {
+        min-width: 80vw;
+    }
+
+    .dialog-bgBoard {
+        z-index: 10000;
+    }
+
+    .dialogShowCard .formLeftSide input::placeholder {
+        font-size: 16px;
+    }
+
+    .dialogShowCard .prio div img {
+        width: 16px;
+    }
+
+    .todos {
+        width: calc(100vw - 40px);
+    }
+
+    .closeSection {
+        padding: 15px;
+    }
+
+    .taskHeader {
+        padding: 4px;
+    }
+
+    .dialogShowCard .prio div {
+        font-size: 14px;
+    }
+
+    .headerEditForm {
+        padding: 12px;
+    }
+
+
+    .headBar {
+        width: 40px;
+        margin-right: 0;
+    }
+
+    .respBtn {
+        margin: 0;
+        padding: 8px;
+    }
+
+    .respBtn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .respAddTaskHeader {
+        padding: 4px;
+    }
+
+    #done {
+        margin-bottom: 80px;
+    }
+}

@@ -1,0 +1,199 @@
+.navBarContent {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.navLogo:hover {
+    cursor: pointer;
+}
+
+.navItems {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #CDCDCD;
+}
+
+.navItems div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+}
+
+.navItems div:hover {
+    cursor: pointer;
+    background-color: #2a3d59;
+}
+
+.navItems div img {
+    padding-right: 8px;
+    padding-left: 60px;
+}
+
+.navFooter {
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navFooter div {
+    padding: 5px 0px;
+    margin-top: 8px;
+    color: #CDCDCD;
+    text-decoration: none;
+}
+
+.navFooter div:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: #29ABE2;
+}
+
+.navItems div.active {
+    cursor: pointer;
+    background-color: #2a3d59;
+}
+
+.navItems div.active {
+    background-color: #091931;
+    color: #fff;
+}
+
+.navFooter div.active {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #091931;
+    color: #CDCDCD;
+}
+
+.navFooter div.active:hover {
+    cursor: pointer;
+    font-weight: normal;
+    background-color: #091931;
+}
+
+.navItems div.active img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7497%) hue-rotate(149deg) brightness(105%) contrast(102%)
+}
+
+@media (max-width: 760px) {
+
+    .navBar {
+        position: fixed;
+        bottom: 0px;
+        width: 100vw;
+        height: 88px;
+        background-color: #2A3647;
+        z-index: 10000;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navBarContent.special {
+        height: auto;
+        flex-direction: row;
+    }
+
+    .navLogo img {
+        display: none;
+    }
+
+    .navFooter div {
+        display: none;
+    }
+
+    .navItems.special {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: unset;
+    }
+
+    .navItem.responsive {
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 16px;
+        gap: 4px;
+        padding: 16px;
+        ;
+        padding-bottom: 15px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .navItem.responsive img {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .login {
+        width: 50vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login form div {
+        width: 100%;
+    }
+
+    .login form div input {
+        width: 100%;
+    }
+
+    .login form div input::placeholder {
+        font-size: 20px;
+    }
+
+    .loginBtn {
+        width: 180px;
+        height: 51px;
+    }
+}
+
+@media (max-width: 460px) {
+    .SignUpBox {
+        width: 80%;
+        padding: 20px 40px;
+    }
+
+    .login h1 {
+        font-size: 41px;
+    }
+
+
+    .navItem.responsive {
+        width: 40px;
+        height: 40px;
+    }
+}

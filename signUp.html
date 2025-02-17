@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/include.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/board.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="icon" type="image/x-icon" href="./img/logo.svg">
+    <title>Join</title>
+</head>
+
+<body onload="initRegister(); checkAcceptance();">
+
+    <div class="signUpPage">
+        <div class="mainDivOne signUpSpecial">
+            <img class="capa2" src="img/Capa 2.svg">
+        </div>
+
+
+        <div class="mainDivTwo">
+           
+            <div class="signUpBox">
+
+                <div class="login">
+                    <div class="signUpHeader">
+                        <img onclick="window.location.href='index.html' " src="img/arrow-left-line.svg">
+                        <h1 class="signUpH1">Sign Up</h1>
+                        <div style="height: 32px; width: 32px;"></div>
+                    </div>
+          
+                    <img id="loginUnderline" src="img/loginUnderline.svg">
+
+                    <form class="signUpForm" autocomplete="off" onsubmit="register(); return false;">
+                        <div class="inputContainer">
+                            <input id="userNameInput" class="loginInput" placeholder="Name" type="text" required>
+                            <img src="img/person-grey.svg">
+                        </div>
+                        <div class="inputContainer">
+                            <input id="userEmailInput" class="loginInput" placeholder="Email" type="email" required>
+                            <img src="img/mail-grey.svg">
+                        </div>
+                        <div class="inputContainer">
+                            <input id="userPasswordInput" class="loginInput" placeholder="Password" type="password" required>
+                            <img src="img/lock.svg">
+                        </div>
+                        <div id="confirmPasswordContainer" class="inputContainer">
+                            <input id="confirmPasswordInput" class="loginInput" placeholder="Confirm Password" type="password" required>
+                            <img src="img/lock.svg">
+                        </div>
+                        <div id="confirmMsg" class="confirmMsg">
+                            Ups! yor password don't match
+                        </div>
+                        <div id="acceptMsg" class="acceptMsg">
+                            <span>Please accept our Privacy policy</span>
+                        </div>
+                        <div class="acceptBox" onclick="toggleAcceptCheckbox()">
+                            <img id="acceptBoxUnchecked" class="acceptBoxUnchecked" src="img/checkboxEmpty.svg" alt="">
+                            <img id="acceptBoxChecked" class="acceptBoxChecked" src="img/checkboxChecked.svg" alt="">
+                            I accept the <a href="">Privacy policy</a>
+                        </div>
+                        <div class="logBtns">
+                            <button id="registerBtn" class="loginBtn">Sign Up</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div id="overlay">
+                    <div id="successMessage">
+                        You signed up successfully
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainDivThree">
+            <div class="loginLinks">
+                <a href="">Privacy Policy</a>
+                <a href="">Legal Notice</a>
+            </div>
+        </div>
+
+</body>
+
+</html>

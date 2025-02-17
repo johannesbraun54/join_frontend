@@ -1,0 +1,582 @@
+.summaryContent
+
+/*summaryHeader*/
+.summaryHeader {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-left: 87px;
+    margin-top: 68px;
+    margin-bottom: 68px;
+}
+
+.summaryHeader h1 {
+    color: #000;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.separatorHeader {
+    height: 59px;
+    width: 3px;
+    background-color: #29ABE2;
+    border-radius: 5px;
+}
+
+.summaryHeader h3 {
+    color: #2A3647;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 32.4px */
+}
+
+/*summaryContainer*/
+.summaryContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 87px;
+    margin-left: 87px;
+    margin-right: 87px;
+}
+
+.summaryLeftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+}
+
+.firstRow {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.firstRow div:hover {
+    cursor: pointer;
+    background-color: #2A3647;
+}
+
+.toDo:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.done:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.firstRow div:hover span {
+    color: #ffffff;
+}
+
+.firstRow div:hover img {
+    filter: invert(100%) sepia(10%) saturate(0%) hue-rotate(236deg) brightness(117%) contrast(102%);
+}
+
+.toDo {
+    display: flex;
+    width: 264px;
+    height: 168px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    position: relative;
+}
+
+.toDoLeft {
+    pointer-events: none;
+}
+
+.toDoRight {
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.done {
+    display: flex;
+    width: 264px;
+    height: 168px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    position: relative;
+}
+
+.doneLeft {
+    pointer-events: none;
+}
+
+.doneRight {
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.secondRow div:hover {
+    cursor: pointer;
+    background-color: #2A3647;
+}
+
+.secondRow div:hover span {
+    color: white;
+}
+
+.urgent:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.urgent {
+    display: flex;
+    width: 560px;
+    height: 168px;
+    justify-content: center;
+    align-items: center;
+    gap: 61px;
+    border-radius: 30px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    position: relative;
+}
+
+.urgentLeft {
+    display: flex;
+    gap: 18px;
+    pointer-events: none;
+}
+
+.urgentImg {
+    display: flex;
+}
+
+.urgentCount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.urgentNumber {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.urgentText {
+    color: #2A3647;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    width: 83px;
+}
+
+.separatorUrgent {
+    width: 2px;
+    height: 102.023px;
+    background-color: #D1D1D1;
+    border-radius: 5px;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    pointer-events: none;
+}
+
+.calendarDate {
+    color: #2A3647;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 25.2px */
+}
+
+.calendarEvent {
+    color: #2A3647;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 19.2px */
+}
+
+.thirdRow {
+    display: flex;
+    width: 560px;
+    height: 170px;
+    padding: 1px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.thirdRow div {
+    display: flex;
+    width: 168px;
+    height: 168px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    position: relative;
+}
+
+.thirdRow div:hover {
+    cursor: pointer;
+    background-color: #2A3647;
+}
+
+.thirdRow div:hover span {
+    color: white;
+}
+
+.taskNumber {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.taskText {
+    color: #2A3647;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    width: 83px;
+}
+
+.tasksInBoard:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.tasksInProgress:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.awaitingFeedback:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+.summaryRightSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greetingsBox {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.greetingMessage {
+    color: #2A3647;
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 56.4px */
+    margin: 0;
+}
+
+.userName {
+    color: var(--Ligth-blue, #29ABE2);
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 76.8px */
+}
+
+.mobileGreetingBox {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(246, 247, 248);
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+
+}
+
+/*RESPONSIVENESS*/
+
+@media (max-width: 1364px) {
+    .summaryContainer {
+        gap: 0px;
+    }
+}
+
+@media (max-width: 1372px) {
+    .summaryContainer {
+        margin-right: 50px;
+    }
+
+    .summaryRightSide {
+        display: none;
+    }
+}
+
+@media(max-width: 1253px) {
+
+    .summaryHeader {
+        margin-left: 0;
+    }
+
+    .summaryContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 900px) {
+    .summaryContainer {
+        margin: 0;
+    }
+
+    .summaryHeader {
+        margin-left: 16px;
+        margin-top: 48px;
+        margin-bottom: 40px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summaryHeader :nth-child(1) {
+        order: 1;
+    }
+
+    .summaryHeader :nth-child(2) {
+        order: 3;
+    }
+
+    .summaryHeader :nth-child(3) {
+        order: 2;
+    }
+
+    .separatorHeader {
+        width: 90px;
+        height: 3px;
+    }
+
+    .summaryHeader h3 {
+        margin: 0px;
+    }
+
+    .summaryLeftSide {
+        justify-self: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .toDo {
+        display: flex;
+        width: 148px;
+        height: 34px;
+        padding: 38px 19px;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        flex-shrink: 0;
+    }
+
+    .done {
+        display: flex;
+        width: 148px;
+        height: 34px;
+        padding: 38px 19px;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        flex-shrink: 0;
+    }
+
+    .summaryIcons {
+        height: 40px;
+        width: 40px;
+    }
+
+    .taskNumber {
+        font-size: 47px;
+    }
+
+    .taskText {
+        font-size: 14px;
+    }
+
+    .urgent {
+        width: 396px;
+        height: 110px;
+        gap: 20px;
+        flex-shrink: 0;
+    }
+
+    .urgentLeft {
+        align-items: center;
+    }
+
+    .urgentImg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .urgentNumber {
+        font-size: 47px;
+    }
+
+    .urgentText {
+        color: #2A3647;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .separatorUrgent {
+        width: 2px;
+        height: 68px;
+    }
+
+    .calendarDate {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        /* 19.2px */
+    }
+
+    .calendarEvent {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        /* 16.8px */
+    }
+
+    .thirdRow div {
+        width: 116px;
+        height: 66px;
+        padding: 25px 0px;
+        gap: 0px;
+    }
+
+    .taskNumber {
+        font-size: 47px;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    .taskText {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
+@media(max-width: 760px) {
+
+    .mobileGreetingBox {
+        display: flex;
+        animation: fadeOut 1s ease-in-out 2s forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+}
+
+@media(max-width: 420px) {
+    .firstRow {
+        width: 320px;
+        gap: 5px;
+    }
+
+    .toDo {
+        padding: 38px 5px
+    }
+
+    .done {
+        padding: 38px 5px
+    }
+
+    .urgent {
+        width: 320px;
+        gap: 0px;
+    }
+
+    .urgentLeft {
+        gap: 0px;
+        padding-left: 12px;
+    }
+
+    .calendar {
+        padding-right: 10px;
+        padding-left: 18px;
+    }
+
+    .thirdRow {
+        width: 320px;
+        gap: 5px;
+    }
+
+    .thirdRow div {
+        width: 103px;
+        height: 103px;
+        padding: 0;
+    }
+}

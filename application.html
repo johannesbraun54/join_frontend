@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js"></script>
+    <script src="./js/include.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/summary.js"></script>
+    <script src="./js/addTask.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/card.js"></script>
+    <script src="./js/taskoverlay.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/privacyPolicy.js"></script>
+    <script src="./js/legalNotice.js"></script>
+    <script src="./js/help.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./templates/tempBoard.js"></script>
+    <script src="./templates/tempContact.js"></script>
+    <script src="./templates/tempAddTask.js"></script>
+    <script src="./templates/tempSummary.js"></script>
+    <script src="./templates/tempHelp.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/navBar.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/summary.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/contacts.css">
+    <link rel="stylesheet" href="./css/privacyPolicy.css">
+    <link rel="stylesheet" href="./css/legalNotice.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="icon" type="image/x-icon" href="./img/logo.svg">
+    <title>Join</title>
+</head>
+
+<body class="applicationBody" onload="init()" onclick="closeDropdown(event)">
+    <div class="leftSide">
+        <div class="w3NavBar" w3-include-html="./templates/navBar.html"></div>
+    </div>
+    <div class="rightSide">
+        <div w3-include-html="./templates/header.html"></div>
+        <div id="content"></div>
+    </div>
+</body>
+
+</html>
