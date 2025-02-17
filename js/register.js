@@ -1,9 +1,23 @@
 let users = []
+const REGISTER_URL = 'http://127.0.0.1:8000/api/auth/registration/'
+
+function setNewUserAtStorage() {
+    let payload
+    return fetch(
+        REGISTER_URL, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/json' },
+
+    }
+    )
+}
 
 /**
  * This function is used to initialize the registration process
  *  by invoking the loadUsers function
  */
+
 function initRegister() {
     loadUsers();
 }
