@@ -123,8 +123,7 @@ function renderSingleinitials(firstNameCharacter) {
  * Updates the HTML elements with the current user's name based on the username from the URL parameters.
  */
 function getCurrentUserName() {
-    let params = new URLSearchParams(window.location.search);
-    let username = params.get('username');
+    let username = localStorage.getItem('username');
     document.getElementById('currentUserName').innerHTML = username
     document.getElementById('mobileCurrentUserName').innerHTML = username
 }

@@ -1,3 +1,5 @@
+loginFailed = false
+
 /**
  * This function is used to validate the email input
  * @returns error if validation does not succeed
@@ -67,13 +69,34 @@ function checkUser(email, password) {
  */
 
 function login() {
-    if (!validateEmail() || !validatePassword()) {
-        return false;
-    }
-
-    let email = document.getElementById("loginMailInput").value;
+    let username = document.getElementById("loginMailInput").value;
     let password = document.getElementById("loginPasswordInput").value;
-    return checkUser(email, password);
+    sendLoginDataToBackend(username, password);
+}
+
+async function sendLoginDataToBackend(email, password) {
+    let loginData = {
+        username: email,
+        password: password
+    }
+    let payload = JSON.stringify(loginData);
+    let response = await fetch('http://127.0.0.1:8000/api/auth/login/', {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    data = await response.json();
+    data.login_successful ? setAuthenticatedUserToLocalStorage(data) : loginFailed = true;
+    loginFailed ? document.getElementById("loginPasswordInputMsg").style.display = "block" : ""
+}
+
+function setAuthenticatedUserToLocalStorage(user) {
+    localStorage.clear()
+    localStorage.setItem('username', user.username);
+    localStorage.setItem('email', user.email);
+    localStorage.setItem('token', user.token);
+    window.location.href = 'application.html'
 }
 
 /**
@@ -84,10 +107,10 @@ function toggleCheckBoxRememberMe() {
     let uncheckedBox = document.getElementById('checkBoxUnchecked');
 
     if (checkedBox.style.display === "" || checkedBox.style.display === "none") {
-    checkedBox.style.display = "block";
-    uncheckedBox.style.display = "none";
-    }else{
-    checkedBox.style.display = "none";
-    uncheckedBox.style.display = "block";
+        checkedBox.style.display = "block";
+        uncheckedBox.style.display = "none";
+    } else {
+        checkedBox.style.display = "none";
+        uncheckedBox.style.display = "block";
     }
 }

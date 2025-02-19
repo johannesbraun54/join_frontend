@@ -1,9 +1,11 @@
 let users = []
 const REGISTER_URL = 'http://127.0.0.1:8000/api/auth/registration/'
+let registered_successful;
 
-function setNewUserAtStorage() {
-    let payload
-    return fetch(
+
+async function setNewUserAtStorage(user) {
+    let payload = JSON.stringify(user)
+    let response = await fetch(
         REGISTER_URL, {
         method: 'POST',
         body: payload,
@@ -11,6 +13,10 @@ function setNewUserAtStorage() {
 
     }
     )
+
+    let data =  await response.json();
+    registered_successful = response.ok;
+    console.log("response", data)
 }
 
 /**
@@ -42,10 +48,7 @@ async function loadUsers() {
  * and displays a success overlay
  * @returns cancels the function if the password inputs of the user don't match
  */
-function register() {
-    if (!passwordMatching()) {
-        return;
-    }
+async function register() {
     if (!checkAcceptance()) {
         acceptMsg.style.display = "flex";
 
@@ -55,23 +58,26 @@ function register() {
 
         return;
     }
-
-    usersPush();
-    resetForm();
-    successfulRegistration();
+    await defineUser();
+    if(registered_successful){
+        resetForm();
+        successfulRegistration();
+    }
 }
 
 /**
  * This function adds the current user's data to the users array and 
  * updates the remote storage with the new user information
  */
-async function usersPush() {
-    users.push({
-        name: userNameInput.value,
+async function defineUser() {
+
+    let user = {
+        username: userNameInput.value,
         email: userEmailInput.value,
         password: userPasswordInput.value,
-    });
-    await setItem('users', JSON.stringify(users));
+        repeated_password: confirmPasswordInput.value
+    };
+    await setNewUserAtStorage(user);
 }
 
 /**
