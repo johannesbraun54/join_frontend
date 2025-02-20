@@ -16,6 +16,7 @@ let taskStatus = 'todo';
  * @param {string} taskStatusFromResponsive - Taskname Variable to render in the right Section
  */
 function renderAddTask(taskStatusFromResponsive) {
+    checkAuthentication();
     let content = document.getElementById('content');
     selectedContacts = [];
     content.innerHTML = `<div class="addTaskContainer">${tempRenderAddTask()}</div>`;

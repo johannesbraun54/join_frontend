@@ -7,6 +7,7 @@ let contactColorsMap = new Map();
  * This function renders the 'Contacts' page.
  */
 function renderContacts() {
+    checkAuthentication();
     let content = document.getElementById('content');
     content.innerHTML = tempRenderContactContent();
     getFirstLetter();

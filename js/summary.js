@@ -4,6 +4,7 @@ summary = [];
  * This function renders the content of the summary 
  */
 async function renderSummary() {
+    checkAuthentication();
     await getSummary();
     let content = document.getElementById('content');
     content.innerHTML = tempRenderSummary();

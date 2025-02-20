@@ -1,5 +1,3 @@
-loginFailed = false
-
 /**
  * This function is used to validate the email input
  * @returns error if validation does not succeed

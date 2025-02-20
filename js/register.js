@@ -14,7 +14,7 @@ async function setNewUserAtStorage(user) {
     }
     )
 
-    let data =  await response.json();
+    let data = await response.json();
     registered_successful = response.ok;
     console.log("response", data)
 }
@@ -59,7 +59,7 @@ async function register() {
         return;
     }
     await defineUser();
-    if(registered_successful){
+    if (registered_successful) {
         resetForm();
         successfulRegistration();
     }

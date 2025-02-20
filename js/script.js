@@ -24,6 +24,20 @@ async function init() {
     }
 }
 
+function guest_login() {
+    sessionStorage.setItem('guest', "Guest");
+    window.location.href = 'application.html';
+}
+
+function checkAuthentication() {
+    let token = localStorage.getItem('token');
+    let guest = sessionStorage.getItem('guest');
+    if (!token && !guest) {
+        window.location.href = 'index.html';
+        return
+    }
+}
+
 /**
  * Hides various elements on the page, such as the header, summary, add task button, board, and contacts.
  * Disables the click event on the navigation logo and sets its cursor style to default.

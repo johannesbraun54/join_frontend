@@ -12,6 +12,7 @@ let taskoverlay_window_clicked = false;
  */
 
 async function renderBoard() {
+    checkAuthentication();
     allTasks = [];
     let content = document.getElementById('content');
     content.innerHTML = /*html*/ `${renderBoardHtml()}`;
