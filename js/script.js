@@ -24,11 +24,10 @@ async function init() {
     }
 }
 
-function guest_login() {
-    sessionStorage.setItem('guest', "Guest");
-    window.location.href = 'application.html';
-}
-
+/**
+ * checks Status, if user is authenticated
+ * @returns 
+ */
 function checkAuthentication() {
     let token = localStorage.getItem('token');
     let guest = sessionStorage.getItem('guest');

@@ -73,6 +73,15 @@ function login() {
 }
 
 /**
+ * takes the guest login
+ */
+function guest_login() {
+    sessionStorage.setItem('guest', "Guest");
+    localStorage.clear()
+    window.location.href = 'application.html';
+}
+
+/**
  * sends login data to backend and gets username, email and token back
  * @param {string} email 
  * @param {string} password 

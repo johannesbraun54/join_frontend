@@ -248,8 +248,6 @@ function renderBoardEditForm(idFromTask) {
 
 function renderEditContent(idFromTask) {
 
-    isEdit = true
-    console.log("isEdit", isEdit)
     selectedContacts = [];
     selectedCompleteContacts = [];
     let actuellyTask = allTasks[idFromTask]
@@ -288,8 +286,6 @@ async function saveEditChanges(idFromTask) {
     pushEditAssignedTo(idFromTask);
     await editTaskAtStorage(actuellyTask);
     await pushEditSubtasks(idFromTask);
-    // console.log("actuellyTask after editTaskAtStorage",actuellyTask)
-    // await setTasksStorage();
 }
 
 /**

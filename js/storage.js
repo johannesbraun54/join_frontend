@@ -9,8 +9,12 @@ let currentTask_ID = ""
 
 async function setNewTaskAtStorage(task) {
     const payload = task
-    const response = await fetch(TASKS_URL, { method: 'POST', body: JSON.stringify(payload), headers: { 'Content-Type': 'application/json' } })
-
+    const response = await fetch(TASKS_URL,
+        {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        })
     let data = await response.json();
     currentTask_ID = data.id;
 }
@@ -20,8 +24,9 @@ async function editTaskAtStorage(task) {
     task.id = task.backend_id
     delete task.backend_id
     let id = task.id
+    task.assigned_to_ids = contactIDs
     const payload = task
-    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}`,
+    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}/`,
         {
             method: 'PUT',
             body: JSON.stringify(payload),
@@ -33,7 +38,7 @@ async function deleteTaskAtStorage(task) {
     task.id = task.backend_id
     delete task.backend_id
     let id = task.id
-    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}`,
+    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}/`,
         {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' }
@@ -51,8 +56,6 @@ async function editContactAtStorage(contact) {
     id = contact.id
     convertStringToNumber = Number(contact.phone)
     contact.phone = convertStringToNumber;
-    console.log(typeof contact.phone)
-    const payload = contact
     return fetch(`http://127.0.0.1:8000/api/contacts/${id}/`,
         {
             method: 'PUT',
