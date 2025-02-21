@@ -2,7 +2,10 @@ let users = []
 const REGISTER_URL = 'http://127.0.0.1:8000/api/auth/registration/'
 let registered_successful;
 
-
+/**
+ * sets a new user at storage
+ * @param {obj} user 
+ */
 async function setNewUserAtStorage(user) {
     let payload = JSON.stringify(user)
     let response = await fetch(
@@ -10,14 +13,26 @@ async function setNewUserAtStorage(user) {
         method: 'POST',
         body: payload,
         headers: { 'Content-Type': 'application/json' },
-
     }
     )
 
     let data = await response.json();
     registered_successful = response.ok;
-    console.log("response", data)
+    !registered_successful ? displayErrorAtSignUp(data) : "";
 }
+
+
+/**
+ * shows error message
+ * @param {obj} error 
+ */
+function displayErrorAtSignUp(error) {
+    let confirmMsg = document.getElementById('confirmMsg');
+    confirmMsg.style.display = "block";
+    confirmMsg.innerHTML = /*html*/`${error.error}`
+}
+
+
 
 /**
  * This function is used to initialize the registration process
@@ -59,10 +74,7 @@ async function register() {
         return;
     }
     await defineUser();
-    if (registered_successful) {
-        resetForm();
-        successfulRegistration();
-    }
+    registered_successful ? (resetForm(), successfulRegistration()) : "";
 }
 
 /**
@@ -133,11 +145,11 @@ function passwordMatching() {
     }
 }
 
-/**
- * This function toggles the visual representation of the acceptance checkbox
- * between checked and unchecked states 
- * It also calls the checkAcceptance function to update the registration button status accordingly
- */
+// /**
+//  * This function toggles the visual representation of the acceptance checkbox
+//  * between checked and unchecked states 
+//  * It also calls the checkAcceptance function to update the registration button status accordingly
+//  */
 function toggleAcceptCheckbox() {
     let checkedBox = document.getElementById('acceptBoxChecked');
     let uncheckedBox = document.getElementById('acceptBoxUnchecked');

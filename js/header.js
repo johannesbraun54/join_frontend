@@ -21,3 +21,9 @@ function closeDropdown(event) {
         dropdown.style.display = "none";
     }
 }
+
+function LogOut(){
+    localStorage.clear();
+    sessionStorage.clear()
+    window.location.href = 'index.html'; 
+}

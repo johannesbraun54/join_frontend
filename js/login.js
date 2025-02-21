@@ -72,6 +72,11 @@ function login() {
     sendLoginDataToBackend(username, password);
 }
 
+/**
+ * sends login data to backend and gets username, email and token back
+ * @param {string} email 
+ * @param {string} password 
+ */
 async function sendLoginDataToBackend(email, password) {
     let loginData = {
         username: email,
@@ -85,6 +90,13 @@ async function sendLoginDataToBackend(email, password) {
     })
 
     data = await response.json();
+    checkLoginResponse(data);
+}
+
+/**
+ * checks the Response data from authentication
+ */
+function checkLoginResponse() {
     data.login_successful ? setAuthenticatedUserToLocalStorage(data) : loginFailed = true;
     loginFailed ? document.getElementById("loginPasswordInputMsg").style.display = "block" : ""
 }

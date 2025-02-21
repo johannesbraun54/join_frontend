@@ -55,7 +55,7 @@ async function loadTasksFromStorage() {
     })
 
     generateIDs();
-    
+
     if (!summaryNumbersUpdated) {
         summaryNumbersUpdated = true;
     }
@@ -409,13 +409,16 @@ function closeDropDown() {
  */
 function renderDropDownContacts() {
     let dropDownSection = document.getElementById('dropDownSection');
-    dropDownSection.innerHTML = '';
     for (let i = 0; i < contactsJson.length; i++) {
         if (contactsJson[i].fullName.toLowerCase().includes(searchValue.toLowerCase())) {
-            dropDownSection.innerHTML += tempRenderDopwDownContacts(i);
+            dropDownSection ? dropDownSection.innerHTML += tempRenderDopwDownContacts(i) : "";
             let contactsInMenu = document.getElementById(`contactsInMenu${i}`);
-            if (selectedContacts.indexOf(contactsInMenu.children[0].children[1].innerHTML) > -1) {
-                selectContactInDropDown(i);
+            if (contactsInMenu) {
+                if (selectedContacts.indexOf(contactsInMenu.children[0].children[1].innerHTML) > -1) {
+                    selectContactInDropDown(i);
+                }
+            } else {
+                return
             }
             setContactListImgColor(i);
         }
