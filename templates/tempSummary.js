@@ -15,7 +15,7 @@ return /*html*/ `<div class="summaryContent">
                     <img class="summaryIcons" src="./img/summaryPencil.svg" alt="">
                 </div>
                 <div class="toDoRight">
-                    <span id="toDoNumber" class="taskNumber">${summary.todo}</span>
+                    <span id="toDoNumber" class="taskNumber">${summary.todo ?? 0}</span>
                     <span class="taskText">To-do</span>
                 </div>
             </div>
@@ -24,7 +24,7 @@ return /*html*/ `<div class="summaryContent">
                     <img class="summaryIcons" src="./img/summaryCheck.svg" alt="">
                 </div>
                 <div class="doneRight">
-                    <span id="doneNumber" class="taskNumber">${summary.done}</span>
+                    <span id="doneNumber" class="taskNumber">${summary.done ?? 0}</span>
                     <span class="taskText">Done</span>
                 </div>
             </div>
@@ -36,28 +36,28 @@ return /*html*/ `<div class="summaryContent">
                         <img src="./img/summaryUrgent.svg" alt="">
                     </div>
                     <div class="urgentCount"> 
-                        <span id="urgentNumber" class="urgentNumber">${summary.prio_urgent}</span>
+                        <span id="urgentNumber" class="urgentNumber">${summary.prio_urgent ?? 0}</span>
                         <span class="urgentText">Urgent</span>
                     </div>
                 </div>
                 <div class="separatorUrgent"></div>
                 <div class="calendar">
-                    <span id="calendarDate" class="calendarDate">${summary.earliest_due_date}</span>
+                    <span id="calendarDate" class="calendarDate">${summary.earliest_due_date ?? ""}</span>
                     <span class="calendarEvent">Upcoming Deadline</span>
                 </div>
             </div>
         </div>
         <div class="thirdRow">
             <div class="tasksInBoard" onclick="renderBoard()">
-                <span id="TasksInBoardNumber" class="taskNumber">${summary.tasks_in_board}</span>
+                <span id="TasksInBoardNumber" class="taskNumber">${summary.tasks_in_board ?? 0}</span>
                 <span class="taskText">Tasks in Board</span>
             </div>
             <div class="tasksInProgress" onclick="renderBoard()">
-                <span id="TasksInProgressNumber" class="taskNumber">${summary.in_progress}</span>
+                <span id="TasksInProgressNumber" class="taskNumber">${summary.in_progress ?? 0}</span>
                 <span class="taskText">Tasks in Progress</span>
             </div>
             <div class="awaitingFeedback" onclick="renderBoard()">
-                <span id="awaitingFeedbackNumber" class="taskNumber">${summary.await_feedback}</span>
+                <span id="awaitingFeedbackNumber" class="taskNumber">${summary.await_feedback ?? 0}</span>
                 <span class="taskText">Awaiting Feedback</span>
             </div>
         </div>

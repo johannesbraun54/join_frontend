@@ -56,7 +56,6 @@ function addNewContact() {
  * Closes the popup form for adding or editing a contact.
  */
 function closePopup() {
-    //addNewContactForm
     let form = document.getElementById('addNewContactForm');
     let formEdit = document.getElementById('editForm');
     document.getElementById('addNewContactForm').style.transform = 'translate(220%, 0%)';
@@ -306,13 +305,6 @@ function setActualContact(position) {
     document.getElementById('infoSectionContact').innerHTML = tempRenderContact(position, document.getElementById(`contactInListImg${position}`));
     setActiveBackgroundColor(document.getElementById(`contactInList${position}`));
     document.getElementById(`contactInList${position}`).scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-/**
- * This function loads contacts from storage asynchronously and updates the contacts array.
- */
-async function loadContactsFromStorage() {
-    contactsJson = await getItem('contacts');
 }
 
 /**

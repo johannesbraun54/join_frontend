@@ -16,7 +16,6 @@ async function renderBoard() {
     allTasks = [];
     let content = document.getElementById('content');
     content.innerHTML = /*html*/ `${renderBoardHtml()}`;
-    await loadTasksFromStorage()
     setActiveNavItem("board");
     filterTodos();
     updateBoardHtml();
@@ -240,12 +239,9 @@ function openDialog(id, idOfSlideConti) {
     slideIn(idOfSlideConti);
 }
 
-
-
 function getDropDown() {
     console.log('got listener');
 }
-
 
 /**
  * closes the dialog window
@@ -266,6 +262,7 @@ async function closeDialog(id, idOfSlideConti) {
     }, 100)
 
 }
+
 /**
  * accordingly the status from the poupup, the popup for changing the task status in responsivly, opens or closes onclick
  * @param {integer} idFromTask 

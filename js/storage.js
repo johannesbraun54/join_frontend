@@ -1,10 +1,8 @@
-const STORAGE_TOKEN = 'DKM2X2M3RY87UVCQ29JZ0ODF7AJXN9ZJ3FIY39V7';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-const TASKS_URL = 'http://127.0.0.1:8000/api/tasks/'
-const GENERAL_URL = 'http://127.0.0.1:8000/api/'
-const SUBTASKS_URL = 'http://127.0.0.1:8000/api/subtasks/'
-const CONTACTS_URL = 'http://127.0.0.1:8000/api/contacts/'
-const SUMMARY_URL = 'http://127.0.0.1:8000/api/summary/'
+const API_BASE_URL = 'https://join-backend.jb-webdevelopment.com/api/'
+const TASKS_URL = `${API_BASE_URL}tasks/`
+const SUBTASKS_URL = `${API_BASE_URL}subtasks/`
+const CONTACTS_URL = `${API_BASE_URL}contacts/`
+const SUMMARY_URL = `${API_BASE_URL}summary/`
 let currentTask_ID = ""
 
 async function setNewTaskAtStorage(task) {
@@ -26,7 +24,7 @@ async function editTaskAtStorage(task) {
     let id = task.id
     task.assigned_to_ids = contactIDs
     const payload = task
-    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}/`,
+    const response = await fetch(`${TASKS_URL}${id}/`,
         {
             method: 'PUT',
             body: JSON.stringify(payload),
@@ -38,7 +36,7 @@ async function deleteTaskAtStorage(task) {
     task.id = task.backend_id
     delete task.backend_id
     let id = task.id
-    const response = await fetch(`http://127.0.0.1:8000/api/tasks/${id}/`,
+    const response = await fetch(`${TASKS_URL}${id}/`,
         {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' }
@@ -56,7 +54,7 @@ async function editContactAtStorage(contact) {
     id = contact.id
     convertStringToNumber = Number(contact.phone)
     contact.phone = convertStringToNumber;
-    return fetch(`http://127.0.0.1:8000/api/contacts/${id}/`,
+    return fetch(`${CONTACTS_URL}${id}/`,
         {
             method: 'PUT',
             body: JSON.stringify(contact),
@@ -68,7 +66,7 @@ async function deleteContactAtStorage(contact) {
 
     let id = contact.id
 
-    return fetch(`http://127.0.0.1:8000/api/contacts/${id}/`,
+    return fetch(`${CONTACTS_URL}${id}/`,
         {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' }
@@ -108,7 +106,7 @@ async function editSubtaskAtStorage(subtask) {
     const subtasksAsString = JSON.stringify(subtask);
     const payload = subtasksAsString;
 
-    return fetch(`http://127.0.0.1:8000/api/subtasks/${id}/`, {
+    return fetch(`${SUBTASKS_URL}${id}/`, {
         method: 'PUT',
         body: payload,
         headers: { 'Content-Type': 'application/json' }
@@ -117,12 +115,11 @@ async function editSubtaskAtStorage(subtask) {
 
 async function deleteSubtaskAtStorage(subtask) {
     let id = subtask.id;
-    return fetch(`http://127.0.0.1:8000/api/subtasks/${id}/`, {
+    return fetch(`${SUBTASKS_URL}${id}/`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     })
 }
-
 
 async function setTaskIDsAtSubtasks() {
     for (let i = 0; i < subtasksList.length; i++) {
@@ -131,10 +128,4 @@ async function setTaskIDsAtSubtasks() {
         await setNewSubtaskStorage(subtask);
     }
 
-}
-
-
-async function getItem(key) {
-    const url = `${GENERAL_URL}${key}`;
-    return fetch(url).then(res => res.json());
 }

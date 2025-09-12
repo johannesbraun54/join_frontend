@@ -1,5 +1,5 @@
 let users = []
-const REGISTER_URL = 'http://127.0.0.1:8000/api/auth/registration/'
+const REGISTER_URL = `${API_BASE_URL}registration/`
 let registered_successful;
 
 /**
@@ -21,7 +21,6 @@ async function setNewUserAtStorage(user) {
     !registered_successful ? displayErrorAtSignUp(data) : "";
 }
 
-
 /**
  * shows error message
  * @param {obj} error 
@@ -30,29 +29,6 @@ function displayErrorAtSignUp(error) {
     let confirmMsg = document.getElementById('confirmMsg');
     confirmMsg.style.display = "block";
     confirmMsg.innerHTML = /*html*/`${error.error}`
-}
-
-
-
-/**
- * This function is used to initialize the registration process
- *  by invoking the loadUsers function
- */
-
-function initRegister() {
-    loadUsers();
-}
-
-/**
- * This function loads user data from the remote storage
- */
-async function loadUsers() {
-    try {
-        // let parseStorage = await getItem('users');
-        // users = JSON.parse(parseStorage.data.value);
-    } catch (e) {
-        console.log('not found user')
-    }
 }
 
 /**

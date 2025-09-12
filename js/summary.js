@@ -5,16 +5,11 @@ summary = [];
  */
 async function renderSummary() {
     await checkAuthentication();
-    await getSummary();
     let content = document.getElementById('content');
     content.innerHTML = tempRenderSummary();
     setActiveNavItem("summary");
     renderGreetingMessage();
     renderInitials();
-}
-
-async function getSummary() {
-    summary = await getItem('summary');
 }
 
 /**
@@ -28,7 +23,6 @@ function showDate() {
     if (urgentTasksWithDueDates.length > 0) {
         const dates = urgentTasksWithDueDates.map(item => new Date(item.dueDate));
         closestDate = new Date(Math.min.apply(null, dates));
-        // upcomingDeadline = closestDate.toISOString().split('T')[0];
     }
     const formattedDate = upcomingDeadline.replace(/(\d{4})-(\d{2})-(\d{2})/, function (match, year, month, day) {
         const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];

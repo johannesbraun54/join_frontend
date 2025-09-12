@@ -45,23 +45,6 @@ function getContactIdsOfSelectedContatcs() {
 }
 
 /**
- * This function loads all tasks from remote storage.
- */
-async function loadTasksFromStorage() {
-    let storageTasks = await getItem('tasks');
-    allTasks = []
-    storageTasks.forEach((task) => {
-        allTasks.push(task)
-    })
-
-    generateIDs();
-
-    if (!summaryNumbersUpdated) {
-        summaryNumbersUpdated = true;
-    }
-}
-
-/**
  * This function creates a Task and verifies the mandatory fields.
  */
 async function createTask() {
@@ -97,7 +80,6 @@ async function createTask() {
         getContactIdsOfSelectedContatcs()
         await setNewTaskAtStorage(newTask);
         await setTaskIDsAtSubtasks()
-        getItem("tasks")
         clearAddTask();
         renderBoard();
 
