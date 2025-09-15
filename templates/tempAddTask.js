@@ -192,7 +192,7 @@ function renderAssignedToImages() {
     let htmlToAdd = "";
     let numberToAdd = "";
     for (let i = 0; i < selectedContacts.length; i++) {
-        let imgColor = contactColorsMap.get(selectedContacts[i]); // .fullName müsste hinzugefügt werden
+        let imgColor = contactColorsMap.get(selectedContacts[i]);
         if (imgColor) {
             if (i < 4) {
                 htmlToAdd += tempRenderAssignedToImages(i, imgColor);

@@ -77,14 +77,11 @@ async function createTask() {
             category: elements.category.innerText,
             subtasks: subtasksList
         };
-        getContactIdsOfSelectedContatcs()
+        getContactIdsOfSelectedContatcs();
         await setNewTaskAtStorage(newTask);
-        await setTaskIDsAtSubtasks()
+        await setTaskIDsAtSubtasks();
         clearAddTask();
         renderBoard();
-
-
-
     }
 }
 
@@ -106,6 +103,8 @@ function clearAddTask() {
     selectedElement = false;
     searchValue = "";
     selectedContacts = [];
+    selectedCompleteContacts = [];
+    contactIDs = [];
     const addTaskInputTitle = document.getElementById('addTaskInputTitle');
     const addTaskTextArea = document.getElementById('addTaskTextArea');
     const selectTaskCategory = document.getElementById('selectTaskCategory');

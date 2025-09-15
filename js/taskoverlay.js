@@ -285,6 +285,9 @@ async function saveEditChanges(idFromTask) {
     pushEditAssignedTo(idFromTask);
     await editTaskAtStorage(actuellyTask);
     await pushEditSubtasks(idFromTask);
+    selectedContacts = [];
+    selectedCompleteContacts = [];
+    contactIDs = [];
 }
 
 /**
