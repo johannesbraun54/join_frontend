@@ -1,5 +1,4 @@
 let users = []
-const REGISTER_URL = `${API_BASE_URL}registration/`
 let registered_successful;
 
 /**

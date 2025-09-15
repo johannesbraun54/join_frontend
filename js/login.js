@@ -92,7 +92,7 @@ async function sendLoginDataToBackend(email, password) {
         password: password
     }
     let payload = JSON.stringify(loginData);
-    let response = await fetch('http://127.0.0.1:8000/api/auth/login/', {
+    let response = await fetch( LOGIN_URL, {
         method: 'POST',
         body: payload,
         headers: { 'Content-Type': 'application/json' }

@@ -1,8 +1,4 @@
-const API_BASE_URL = 'http://127.0.0.1:8000/api/'
-const TASKS_URL = `${API_BASE_URL}tasks/`
-const SUBTASKS_URL = `${API_BASE_URL}subtasks/`
-const CONTACTS_URL = `${API_BASE_URL}contacts/`
-const SUMMARY_URL = `${API_BASE_URL}summary/`
+
 let currentTask_ID = ""
 
 async function loadSummaryFromStorage() {
