@@ -14,6 +14,7 @@ let taskoverlay_window_clicked = false;
 async function renderBoard() {
     checkAuthentication();
     allTasks = [];
+    await loadTasksFromStorage();
     let content = document.getElementById('content');
     content.innerHTML = /*html*/ `${renderBoardHtml()}`;
     setActiveNavItem("board");

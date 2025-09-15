@@ -238,7 +238,6 @@ function renderBoardEditForm(idFromTask) {
     tempRenderAddTaskDivEdit.id = 'tempRenderAddTaskDivEdit';
     taskOverlay.replaceChildren(tempRenderAddTaskDivEdit);
     renderEditContent(idFromTask);
-    // renderAssignedToEditBoard(idFromTask);
 }
 
 /**
@@ -320,12 +319,14 @@ async function pushEditAssignedTo(idFromTask) {
 
     assignedTo = [];
     let assigned_to_ids = [];
+    contactIDs = [];
 
     for (let i = 0; i < selectedCompleteContacts.length; i++) {
         const contact = selectedCompleteContacts[i];
 
         assignedTo.push(contact)
         assigned_to_ids.push(contact['id'])
+        contactIDs.push(contact['id'])
     }
     allTasks[idFromTask]['assignedTo'] = assignedTo
     allTasks[idFromTask]['assigned_to_ids'] = assigned_to_ids

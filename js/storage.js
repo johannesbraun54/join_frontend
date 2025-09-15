@@ -1,9 +1,23 @@
-const API_BASE_URL = 'https://join-backend.jb-webdevelopment.com/api/'
+const API_BASE_URL = 'http://127.0.0.1:8000/api/'
 const TASKS_URL = `${API_BASE_URL}tasks/`
 const SUBTASKS_URL = `${API_BASE_URL}subtasks/`
 const CONTACTS_URL = `${API_BASE_URL}contacts/`
 const SUMMARY_URL = `${API_BASE_URL}summary/`
 let currentTask_ID = ""
+
+async function loadSummaryFromStorage() {
+    const response = await fetch(SUMMARY_URL, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (!response.ok) {
+        throw new Error(`Fehler beim Abrufen: ${response.status}`);
+    }
+
+    summary = await response.json();
+    return summary;
+}
 
 async function setNewTaskAtStorage(task) {
     const payload = task
@@ -17,19 +31,46 @@ async function setNewTaskAtStorage(task) {
     currentTask_ID = data.id;
 }
 
+async function loadTasksFromStorage() {
+    const response = await fetch(TASKS_URL, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (!response.ok) {
+        throw new Error(`Fehler beim Abrufen: ${response.status}`);
+    }
+
+    allTasks = await response.json();
+    generateIDs()
+    return allTasks;
+}
+
 async function editTaskAtStorage(task) {
 
-    task.id = task.backend_id
-    delete task.backend_id
-    let id = task.id
-    task.assigned_to_ids = contactIDs
-    const payload = task
-    const response = await fetch(`${TASKS_URL}${id}/`,
+    task.id = task.backend_id;
+    delete task.backend_id;
+    let id = task.id;
+    
+    task.assigned_to_ids = getIDsFromAssignedTo(task.assignedTo);
+    const payload = task;
+    await fetch(`${TASKS_URL}${id}/`,
         {
             method: 'PUT',
             body: JSON.stringify(payload),
             headers: { 'Content-Type': 'application/json' }
-        }).then(res => res.json())
+        }).then(res => res.json());
+}
+
+function getIDsFromAssignedTo(assignedTo){
+    let contact_ids = [];
+
+    for (let i = 0; i < assignedTo.length; i++) {
+        const contact = assignedTo[i];
+        contact_ids.push(contact['id']) 
+    }
+
+    return contact_ids
 }
 
 async function deleteTaskAtStorage(task) {
@@ -44,10 +85,23 @@ async function deleteTaskAtStorage(task) {
 }
 
 async function setNewContactsAtStorage(contact) {
-    let stringyfidContact = JSON.stringify(contact)
     const payload = contact
     return fetch(CONTACTS_URL, { method: 'POST', body: JSON.stringify(payload), headers: { 'Content-Type': 'application/json' } })
         .then(res => res.json())
+}
+
+async function loadContactsFromStorage(){
+    const response = await fetch(CONTACTS_URL, {        
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}}
+    )
+
+    if (!response.ok) {
+        throw new Error(`Fehler beim Abrufen: ${response.status}`);
+    }
+    
+    contactsJson = await response.json();
+    return contactsJson
 }
 
 async function editContactAtStorage(contact) {

@@ -17,7 +17,7 @@ It provides a Kanban-style board, user management, and task features to help org
 ## Installation & Setup
 
 ### Requirements
-- A functioning Django backend, preferably my join-backend, which is **not** included in this project.
+- A functioning Django backend, preferably my [**join-backend**](https://github.com/johannesbraun54/join-backend), which is **not** included in this project.
 - Visual Studio Code with the **Live Server** extension or a similar option for launching `index.html` locally in the browser.
 
 ### Clone repository

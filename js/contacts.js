@@ -6,8 +6,9 @@ let contactColorsMap = new Map();
 /**
  * This function renders the 'Contacts' page.
  */
-function renderContacts() {
+async function renderContacts() {
     checkAuthentication();
+    await loadContactsFromStorage();
     let content = document.getElementById('content');
     content.innerHTML = tempRenderContactContent();
     getFirstLetter();
@@ -106,7 +107,7 @@ function renderEditForm(i) {
 /**
  * This function is used to save the edited contact.
  */
-function saveEdit() {
+async function saveEdit() {
     let inputNameEdit = document.getElementById('inputNameEdit').value;
     let inputEmailEdit = document.getElementById('inputEmailEdit').value;
     let inputPhoneEdit = document.getElementById('inputPhoneEdit').value;
@@ -114,8 +115,8 @@ function saveEdit() {
     contactsJson[contactPosition].email = inputEmailEdit;
     contactsJson[contactPosition].phone = inputPhoneEdit;
     getFirstLetter();
-    editContactAtStorage(contactsJson[contactPosition])
-    renderContacts();
+    await editContactAtStorage(contactsJson[contactPosition])
+    await renderContacts();
     setActualContact(contactPosition);
     closePopup();
 }
@@ -252,7 +253,6 @@ async function createContact(page) {
     const newContact = { fullName: inputName, email: inputEmail, phone: inputPhone };
     contactsJson.push(newContact)
     await setNewContactsAtStorage(newContact);
-    await loadContactsFromStorage()
     if (page.innerText == 'AddTask') {
         renderDropDownContacts();
         document.getElementById(`contactInListImg${contactsJson.length - 1}`).scrollIntoView({ behavior: "smooth", block: "center" });

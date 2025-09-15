@@ -1,10 +1,12 @@
-summary = [];
+let summary = [];
 
 /**
  * This function renders the content of the summary 
  */
 async function renderSummary() {
     await checkAuthentication();
+    await loadSummaryFromStorage();
+    await loadContactsFromStorage();
     let content = document.getElementById('content');
     content.innerHTML = tempRenderSummary();
     setActiveNavItem("summary");
