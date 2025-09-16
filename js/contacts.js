@@ -223,22 +223,25 @@ let activeElement = false;
  * @param {HTML element} element - Contact in List
 */
 function setActiveBackgroundColor(element) {
-    if (activeElement === element) {
-        element.style.backgroundColor = '';
-        element.classList.add('contactInListHover');
-        element.children[1].children[0].style.color = '';
-        activeElement = false;
-    } else {
-        if (activeElement) {
-            activeElement.style.backgroundColor = '';
-            activeElement.classList.add('contactInListHover');
-            activeElement.children[1].children[0].style.color = '';
+    if (element){
+        if (activeElement === element) {
+            element.style.backgroundColor = '';
+            element.classList.add('contactInListHover');
+            element.children[1].children[0].style.color = '';
+            activeElement = false;
+        } else {
+            if (activeElement) {
+                activeElement.style.backgroundColor = '';
+                activeElement.classList.add('contactInListHover');
+                activeElement.children[1].children[0].style.color = '';
+            }
         }
+        element.style.backgroundColor = "#2A3647";
+        element.classList.remove('contactInListHover');
+        element.children[1].children[0].style.color = "#fff";
+        activeElement = element;
     }
-    element.style.backgroundColor = "#2A3647";
-    element.classList.remove('contactInListHover');
-    element.children[1].children[0].style.color = "#fff";
-    activeElement = element;
+
 }
 
 /**
@@ -302,7 +305,13 @@ async function deleteContactInForm() {
  * @param {int} position  - contact Positon
  */
 function setActualContact(position) {
-    document.getElementById('infoSectionContact').innerHTML = tempRenderContact(position, document.getElementById(`contactInListImg${position}`));
+    let contactImg = document.getElementById(`contactInListImg${position}`);
+    if (contactImg == null){
+        const html = tempRenderContactsUnderHeader(position);
+        document.getElementById('contactsList').insertAdjacentHTML("beforeend", html)  
+        contactImg = document.getElementById(`contactInListImg${position}`);
+    }
+    document.getElementById('infoSectionContact').innerHTML = tempRenderContact(position,contactImg);
     setActiveBackgroundColor(document.getElementById(`contactInList${position}`));
     document.getElementById(`contactInList${position}`).scrollIntoView({ behavior: "smooth", block: "center" });
 }

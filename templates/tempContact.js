@@ -67,23 +67,31 @@ function tempEditForm() {
 }
 
 function tempRenderContact(i, imgColor) {
-    return `<div class="infoSectionProfile">
-                <div class="contactPicture" style="background: ${imgColor.style.backgroundColor}">${getInitials(i)}</div>
-                <div class="contactName">
-                    <p style="text-transform: capitalize;">${contactsJson[i].fullName}</p>
-                    <div class="contactButton" id="contactButton">
-                        <div onclick="renderEditForm(${i})"><img src="./img/edit.svg" alt="">Edit</div>
-                        <div onclick="deleteContact(${i})"><img src="./img/delete.svg" alt="">Delete</div>
-                    </div>
-                </div>
+
+    
+    if (imgColor != null) {
+        return `<div class="infoSectionProfile">
+        <div class="contactPicture" style="background: ${imgColor.style.backgroundColor}">${getInitials(i)}</div>
+        <div class="contactName">
+            <p style="text-transform: capitalize;">${contactsJson[i].fullName}</p>
+            <div class="contactButton" id="contactButton">
+                <div onclick="renderEditForm(${i})"><img src="./img/edit.svg" alt="">Edit</div>
+                <div onclick="deleteContact(${i})"><img src="./img/delete.svg" alt="">Delete</div>
             </div>
-            <div class="contactInformationHeader">Contact Information</div>
-            <div class="contactInformation">
-                <p>Email</p>
-                <a class="contactInformationEmail" href="mailto:${contactsJson[i].email}">${contactsJson[i].email}</a>
-                <p>Phone</p>
-                <a class="contactInformationPhone" href="tel:${contactsJson[i].phone}">${contactsJson[i].phone}</a>
-            </div>`;
+        </div>
+    </div>
+    <div class="contactInformationHeader">Contact Information</div>
+    <div class="contactInformation">
+        <p>Email</p>
+        <a class="contactInformationEmail" href="mailto:${contactsJson[i].email}">${contactsJson[i].email}</a>
+        <p>Phone</p>
+        <a class="contactInformationPhone" href="tel:${contactsJson[i].phone}">${contactsJson[i].phone}</a>
+    </div>`;
+    }
+    else {
+        tempRenderContactsUnderHeader(i);
+    }
+
 }
 
 function tempRenderContactContent() {

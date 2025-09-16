@@ -1,10 +1,10 @@
-const AUTH_BASE_URL = 'https://join-backend.jb-webdevelopment.com/api/auth/'
+const AUTH_BASE_URL = 'http://127.0.0.1:8000/api/auth/'
 
 const LOGIN_URL = `${AUTH_BASE_URL}login/`
 
 const REGISTER_URL = `${AUTH_BASE_URL}registration/`
 
-const API_BASE_URL = 'https://join-backend.jb-webdevelopment.com/api/'
+const API_BASE_URL = 'http://127.0.0.1:8000/api/'
 
 const TASKS_URL = `${API_BASE_URL}tasks/`
 
