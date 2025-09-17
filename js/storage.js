@@ -58,6 +58,12 @@ async function editTaskAtStorage(task) {
         }).then(res => res.json());
 }
 
+/**
+ * 
+ * @param { array } assignedTo 
+ * @returns an array with Ids from the assigned contacts
+ */
+
 function getIDsFromAssignedTo(assignedTo){
     let contact_ids = [];
 

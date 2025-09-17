@@ -156,10 +156,15 @@ function tempRenderAssignedToImages(i, imgColor) {
 function selectContactInDropDown(i) {
     let contactsInMenu = document.getElementById(`contactsInMenu${i}`);
     let isSelected = contactsInMenu.classList.contains('selected');
-
+    
     if (isSelected) {
-        selectedContacts.splice(selectedContacts.indexOf(contactsInMenu.children[0].children[1].innerHTML), 1);
-        selectedCompleteContacts.splice(selectedCompleteContacts[i], 1);
+        let nameToRemove = contactsInMenu.children[0].children[1].innerHTML;
+        selectedContacts.splice(selectedContacts.indexOf(nameToRemove), 1);
+
+        const indexInComplete = selectedCompleteContacts.findIndex(c => c.fullName === nameToRemove);
+        if (indexInComplete !== -1) {
+            selectedCompleteContacts.splice(indexInComplete, 1);
+        }
         contactsInMenu.children[0].children[1].style.color = '';
         contactsInMenu.style.backgroundColor = '';
         contactsInMenu.lastElementChild.src = './img/checkboxEmpty.svg';

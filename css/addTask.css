@@ -550,10 +550,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width: 1325px) {
 
-    .addTaskContainer{
+    .addTaskContainer {
         width: 100%;
     }
-    
+
     .addTaskContainer .addTaskContent {
         margin-left: 30px;
     }
@@ -635,6 +635,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 47px;
         padding-top: 0px;
     }
+
+    .subtasksBlock {
+        padding-bottom: 175px;
+        height: auto;
+    }
+
 
     .addTaskContainer .form {
         margin-top: 110px;
