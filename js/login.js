@@ -1,44 +1,44 @@
-/**
- * This function is used to validate the email input
- * @returns error if validation does not succeed
- */
-function validateEmail() {
-    let emailContainer = document.getElementById("loginMailInputContainer");
-    let emailInput = document.getElementById("loginMailInput");
-    let email = emailInput.value;
-    let emailMsg = document.getElementById("loginMailInputMsg");
+// /**
+//  * This function is used to validate the email input
+//  * @returns error if validation does not succeed
+//  */
+// function validateEmail() {
+//     let emailContainer = document.getElementById("loginMailInputContainer");
+//     let emailInput = document.getElementById("loginMailInput");
+//     let email = emailInput.value;
+//     let emailMsg = document.getElementById("loginMailInputMsg");
 
-    if (!email.includes('@')) {
-        emailContainer.style.borderColor = "red";
-        emailMsg.style.display = "block";
-        return false;
-    } else {
-        emailContainer.style.borderColor = "";
-        emailMsg.style.display = "none";
-        return true;
-    }
-}
+//     if (!email.includes('@')) {
+//         emailContainer.style.borderColor = "red";
+//         emailMsg.style.display = "block";
+//         return false;
+//     } else {
+//         emailContainer.style.borderColor = "";
+//         emailMsg.style.display = "none";
+//         return true;
+//     }
+// }
 
-/**
- * This function is used to validate the password input
- * @returns error if validation does not succeed
- */
-function validatePassword() {
-    let passwordContainer = document.getElementById("loginPasswordInputContainer");
-    let passwordInput = document.getElementById("loginPasswordInput");
-    let password = passwordInput.value;
-    let passwordMsg = document.getElementById("loginPasswordInputMsg");
+// /**
+//  * This function is used to validate the password input
+//  * @returns error if validation does not succeed
+//  */
+// function validatePassword() {
+//     let passwordContainer = document.getElementById("loginPasswordInputContainer");
+//     let passwordInput = document.getElementById("loginPasswordInput");
+//     let password = passwordInput.value;
+//     let passwordMsg = document.getElementById("loginPasswordInputMsg");
 
-    if (password.length < 3) {
-        passwordContainer.style.borderColor = "red";
-        passwordMsg.style.display = "block";
-        return false;
-    } else {
-        passwordContainer.style.borderColor = "";
-        passwordMsg.style.display = "none";
-        return true;
-    }
-}
+//     if (password.length < 3) {
+//         passwordContainer.style.borderColor = "red";
+//         passwordMsg.style.display = "block";
+//         return false;
+//     } else {
+//         passwordContainer.style.borderColor = "";
+//         passwordMsg.style.display = "none";
+//         return true;
+//     }
+// }
 
 /**
  * This function is used to compare email and password
@@ -82,27 +82,6 @@ function guest_login() {
 }
 
 /**
- * sends login data to backend and gets username, email and token back
- * @param {string} email 
- * @param {string} password 
- */
-async function sendLoginDataToBackend(email, password) {
-    let loginData = {
-        username: email,
-        password: password
-    }
-    let payload = JSON.stringify(loginData);
-    let response = await fetch( LOGIN_URL, {
-        method: 'POST',
-        body: payload,
-        headers: { 'Content-Type': 'application/json' }
-    })
-
-    data = await response.json();
-    checkLoginResponse(data);
-}
-
-/**
  * checks the Response data from authentication
  */
 function checkLoginResponse() {
@@ -115,7 +94,8 @@ function setAuthenticatedUserToLocalStorage(user) {
     localStorage.setItem('username', user.username);
     localStorage.setItem('email', user.email);
     localStorage.setItem('token', user.token);
-    window.location.href = 'application.html'
+    window.location.href = 'application.html?username=' + encodeURIComponent(user.username);
+
 }
 
 /**

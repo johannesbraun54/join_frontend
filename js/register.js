@@ -2,25 +2,6 @@ let users = []
 let registered_successful;
 
 /**
- * sets a new user at storage
- * @param {obj} user 
- */
-async function setNewUserAtStorage(user) {
-    let payload = JSON.stringify(user)
-    let response = await fetch(
-        REGISTER_URL, {
-        method: 'POST',
-        body: payload,
-        headers: { 'Content-Type': 'application/json' },
-    }
-    )
-
-    let data = await response.json();
-    registered_successful = response.ok;
-    !registered_successful ? displayErrorAtSignUp(data) : "";
-}
-
-/**
  * shows error message
  * @param {obj} error 
  */
@@ -96,35 +77,10 @@ function checkAcceptance() {
 }
 
 /**
- * This function checks if the entered password matches the confirmed password
- * It updates the visual representation of the password confirmation field and
- * displays an error message if the passwords do not match
- * @returns {boolean} - True if passwords match, false otherwise
+ * This function toggles the visual representation of the acceptance checkbox
+ * between checked and unchecked states 
+ * It also calls the checkAcceptance function to update the registration button status accordingly
  */
-function passwordMatching() {
-    let userPasswordInput = document.getElementById("userPasswordInput");
-    let confirmPasswordInput = document.getElementById("confirmPasswordInput");
-    let confirmPasswordContainer = document.getElementById("confirmPasswordContainer");
-    let confirmMsg = document.getElementById("confirmMsg");
-    let password = userPasswordInput.value;
-    let confirmPassword = confirmPasswordInput.value;
-
-    if (password !== confirmPassword) {
-        confirmPasswordContainer.style.borderColor = "red";
-        confirmMsg.style.display = "block";
-        return false;
-    } else {
-        confirmPasswordContainer.style.borderColor = "";
-        confirmMsg.style.display = "none";
-        return true;
-    }
-}
-
-// /**
-//  * This function toggles the visual representation of the acceptance checkbox
-//  * between checked and unchecked states 
-//  * It also calls the checkAcceptance function to update the registration button status accordingly
-//  */
 function toggleAcceptCheckbox() {
     let checkedBox = document.getElementById('acceptBoxChecked');
     let uncheckedBox = document.getElementById('acceptBoxUnchecked');

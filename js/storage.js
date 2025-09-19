@@ -1,5 +1,46 @@
 let currentTask_ID = "";
 
+
+/**
+ * sets a new user at storage
+ * @param {obj} user 
+ */
+async function setNewUserAtStorage(user) {
+    let payload = JSON.stringify(user)
+    let response = await fetch(
+        REGISTER_URL, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/json' },
+    }
+    )
+
+    let data = await response.json();
+    registered_successful = response.ok;
+    !registered_successful ? displayErrorAtSignUp(data) : "";
+}
+
+/**
+ * sends login data to backend and gets username, email and token back
+ * @param {string} email 
+ * @param {string} password 
+ */
+async function sendLoginDataToBackend(email, password) {
+    let loginData = {
+        username: email,
+        password: password
+    }
+    let payload = JSON.stringify(loginData);
+    let response = await fetch( LOGIN_URL, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    data = await response.json();
+    checkLoginResponse(data);
+}
+
 /**
  * Fetches the summary from the backend.
  * @returns {Promise<Object>} - JSON object containing the summary
